@@ -1,0 +1,42 @@
+//
+//  TicketsVC.swift
+//  Payme
+//
+//  Created by Ахмад Аброров on 26/01/24.
+//
+
+import UIKit
+
+class TicketsVC: UIViewController {
+    
+    private let mainView = TicketsView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Уведомление о штрафах ГУБДД"
+        view = mainView
+        
+        tabBarController?.tabBar.isHidden = true
+        
+        let leftButton = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.left"),
+            style: .plain, target: self, action:
+                #selector(leftButtonTapped)
+        )
+        
+        leftButton.tintColor = .black
+        navigationItem.leftBarButtonItem = leftButton
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    @objc func leftButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+}
