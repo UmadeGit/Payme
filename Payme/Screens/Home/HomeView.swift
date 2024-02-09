@@ -19,7 +19,7 @@ final class HomeView: UIView {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell1")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
         collectionView.register(HomeBalanceReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeBalanceReusableView")
-        collectionView.backgroundColor = .rgb(45, 193, 191)
+        collectionView.backgroundColor = .rgb(247, 248, 249)
         return collectionView
     }()
     

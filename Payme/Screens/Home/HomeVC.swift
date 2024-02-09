@@ -76,7 +76,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
             for: indexPath
         )
         
-        headerView.backgroundColor = .systemGray
+        headerView.backgroundColor = .rgb(45, 193, 191)
         
         return headerView
     }
