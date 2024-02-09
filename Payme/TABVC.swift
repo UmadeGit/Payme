@@ -10,7 +10,7 @@ import UIKit
 class TABVC: UITabBarController{
     
     var vcArr = [
-        UINavigationController(rootViewController: HomeVC()),
+        HomeVC(),
         UINavigationController(rootViewController: TransferVC(presenter: TransferPresenter())),
         UINavigationController(rootViewController: PaymentVC(presenter: PaymentsPresenter())),
         UINavigationController(rootViewController: ServicesVC(presenter: ServicesPresenter())),

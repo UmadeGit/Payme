@@ -9,6 +9,9 @@ import UIKit
 
 final class HomeView: UIView {
     
+    private let backgroundView = UIView(
+        frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 500)
+    )
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: frame.size.height),
@@ -19,7 +22,7 @@ final class HomeView: UIView {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell1")
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
         collectionView.register(HomeBalanceReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeBalanceReusableView")
-        collectionView.backgroundColor = .rgb(247, 248, 249)
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -29,15 +32,15 @@ final class HomeView: UIView {
     
     init() {
         super.init(frame: .zero)
-        
+        addSubview(backgroundView)
+        backgroundView.backgroundColor = .green
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-        
+        bringSubviewToFront(collectionView)
         backgroundColor = .white
 
         setupMainButtons()
