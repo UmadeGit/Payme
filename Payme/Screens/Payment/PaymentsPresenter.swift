@@ -8,37 +8,45 @@
 import UIKit
 
 protocol PaymentsPresenterable: AnyObject {
-    func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath)
-    func cellForItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
-    
+    func numberOfItemsInSection(for section:Int) -> Int
+    func cellForRow(collectionView:UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell
 }
 
 final class PaymentsPresenter: PaymentsPresenterable {
-    func cellForItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "cell",
-            for: indexPath
-        ) as? SavedPaymentsCell else { return UICollectionViewCell() }
+    func cellForRow(collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch indexPath.row {
-        case 0 :
-            cell.backgroundColor = .blue
-        case 1 :
-            cell.backgroundColor = .gray
-        case 2 :
-            cell.backgroundColor = .red
-        default :
-            cell.backgroundColor = .yellow
+        guard let sectionType = PaymentSectionType(rawValue: indexPath.section) else { return UICollectionViewCell() }
+        
+        switch sectionType {
+        case .savedPayments:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            cell.backgroundColor = .random
+            return cell
+            
+        case .payments:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
+            cell.backgroundColor = .random
+            return cell
+            
+        case .myHome:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath)
+            
+            cell.backgroundColor = .random
+            return cell
         }
-        
-        return cell
     }
     
-    func didSelectItemAt(_ collectionView: UICollectionView, indexPath: IndexPath) {
+    func numberOfItemsInSection(for section: Int) -> Int {
+        guard let sectionType = PaymentSectionType(rawValue: section) else { return 0 }
         
+        switch sectionType {
+            
+        case .savedPayments:
+            return 2
+        case .payments:
+            return 2
+        case .myHome:
+            return 2
+        }
     }
-    
-    
-    
-    
 }

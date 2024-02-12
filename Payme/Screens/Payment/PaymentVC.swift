@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum PaymentSectionType: Int, CaseIterable {
+    case savedPayments = 0
+    case payments = 1
+    case myHome = 2
+}
+
 class PaymentVC: UIViewController {
     
     private let mainView = PaymentsView()
@@ -43,17 +49,15 @@ class PaymentVC: UIViewController {
 extension PaymentVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 4 }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        presenter.numberOfItemsInSection(for: section)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        presenter.cellForItemAt(collectionView, indexPath: indexPath)
+        presenter.cellForRow(collectionView: collectionView, at: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didSelectItemAt(collectionView, indexPath: indexPath)
-    }
+   
 }
 
 extension PaymentVC: UISearchResultsUpdating {

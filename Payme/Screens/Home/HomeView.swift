@@ -10,8 +10,13 @@ import UIKit
 final class HomeView: UIView {
     
     private let backgroundView = UIView(
-        frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 500)
+        frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
     )
+    
+    private let backgroundViewBottom = UIView(
+        frame: CGRect(x: 0, y: (UIScreen.main.bounds.height / 2) - 30, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
+    )
+    
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: frame.size.height),
@@ -33,7 +38,10 @@ final class HomeView: UIView {
     init() {
         super.init(frame: .zero)
         addSubview(backgroundView)
-        backgroundView.backgroundColor = .green
+        backgroundView.backgroundColor = .rgb(45, 193, 191)
+        addSubview(backgroundViewBottom)
+        backgroundViewBottom.backgroundColor = .rgb(23, 24, 32)
+        backgroundViewBottom.layer.cornerRadius = 20
         addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
@@ -55,8 +63,6 @@ final class HomeView: UIView {
         ) -> NSCollectionLayoutSection? in
             let section: NSCollectionLayoutSection
             
-            
-            
             if sectionIndex == SectionType.category.rawValue {
                 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -77,7 +83,7 @@ final class HomeView: UIView {
                 section.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.boundarySupplementaryItems = [header]
-            } else {
+            } else if sectionIndex == SectionType.lastPayments.rawValue {
     
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -91,8 +97,27 @@ final class HomeView: UIView {
                 group.contentInsets = .init(top: 10, leading: 16, bottom: 0, trailing: 10)
                 
                 let section = NSCollectionLayoutSection(group: group)
+
                 
                 return section
+            } else {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                    
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(100))
+                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                group.contentInsets = .init(top: 10, leading: 16, bottom: 0, trailing: 10)
+                
+                let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(300))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
+                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
+                section.orthogonalScrollingBehavior = .groupPagingCentered
             }
             return section
         }

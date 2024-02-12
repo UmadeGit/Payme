@@ -18,13 +18,13 @@ final class HomePresenter: HomeViewPresenterable {
         
         switch sectionType {
         case .category:
-            return 10
+            return 2
         case .financeServices:
-            return 10
+            return 4
         case .savedPayments:
-            return 10
+            return 1
         case .ads:
-            return 10
+            return 1
         case .myHome:
             return 10
         case .services:
@@ -44,7 +44,7 @@ final class HomePresenter: HomeViewPresenterable {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
             
             cell.backgroundColor = .init(UIColor(red: 84/255, green: 180/255, blue: 181/255, alpha: 1))
-            cell.layer.cornerRadius = 100
+            cell.layer.cornerRadius = 20
             cell.backgroundColor = .orange
             return cell
         case .financeServices:

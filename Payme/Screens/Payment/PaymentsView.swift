@@ -12,13 +12,15 @@ final class PaymentsView: UIView {
     private let tableView = UITableView()
     let searchController = UISearchController(searchResultsController: nil)
     lazy var collectionView: UICollectionView = {
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        
-        collectionView.showsVerticalScrollIndicator = false
+        let collectionView = UICollectionView(
+            frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: frame.size.height),
+            collectionViewLayout: createLayout()
+        )
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(SavedPaymentsCell.self, forCellWithReuseIdentifier: "cell")
-        
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell1")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -50,44 +52,56 @@ final class PaymentsView: UIView {
         
     }
     
-    private func createLayout() -> UICollectionViewLayout {
-        
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+    func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (
+            sectionIndex: Int,
+            layoutEnvironment: NSCollectionLayoutEnvironment
+        ) -> NSCollectionLayoutSection? in
+            let section: NSCollectionLayoutSection
             
-            let horizontalGroup = self.horizontalGroup()
-            let verticalGroup = self.verticalGroup()
-            
-            let containerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3)), subitems: [verticalGroup, horizontalGroup])
-
-            let section = NSCollectionLayoutSection(group: containerGroup)
+            if sectionIndex == PaymentSectionType.savedPayments.rawValue {
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                    
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(100))
+                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                group.contentInsets = .init(top: 10, leading: 16, bottom: 0, trailing: 10)
+                
+                let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(300))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
+                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
+                section.orthogonalScrollingBehavior = .groupPagingCentered
+            } else {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                    
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(100))
+                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                group.contentInsets = .init(top: 10, leading: 16, bottom: 0, trailing: 10)
+                
+                let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(300))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
+                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
+                section.orthogonalScrollingBehavior = .groupPagingCentered
+            }
             return section
         }
-        
         return layout
     }
-    
-    func horizontalGroup() -> NSCollectionLayoutGroup {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .absolute(150))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 10, leading: 10, bottom: 0, trailing: 10)
-        return group
-    }
-    
-    func verticalGroup() -> NSCollectionLayoutGroup {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(200))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width), heightDimension: .absolute(210))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 10, leading: 10, bottom: 0, trailing: 10)
-        return group
-    }
-    
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
