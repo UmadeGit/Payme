@@ -18,8 +18,10 @@ final class PaymentsView: UIView {
         )
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell1")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell2")
+        collectionView.register(PaymentSavedPaymentsCell.self, forCellWithReuseIdentifier: "cell1")
+        collectionView.register(PaymentsCell.self, forCellWithReuseIdentifier: "cell2")
+        collectionView.register(MyHomeCell.self, forCellWithReuseIdentifier: "cell3")
+        collectionView.register(PaymentsInPlacesCell.self, forCellWithReuseIdentifier: "cell4")
         collectionView.backgroundColor = .clear
         return collectionView
     }()
@@ -52,54 +54,105 @@ final class PaymentsView: UIView {
         
     }
     
-    func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (
+    private func createLayout() -> UICollectionViewLayout {
+        UICollectionViewCompositionalLayout { (
             sectionIndex: Int,
             layoutEnvironment: NSCollectionLayoutEnvironment
         ) -> NSCollectionLayoutSection? in
-            let section: NSCollectionLayoutSection
             
-            if sectionIndex == PaymentSectionType.savedPayments.rawValue {
+            guard let sectionType = PaymentSectionType(rawValue: sectionIndex) else { return nil }
+            
+            switch sectionType {
                 
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                //MARK: -  Banner constrint
+            case .savedPayments:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                    
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(100))
-                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
-                group.contentInsets = .init(top: 10, leading: 16, bottom: 0, trailing: 10)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
+                                                       heightDimension: .absolute(120))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
-                let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(300))
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                
-                
-                section = NSCollectionLayoutSection(group: group)
+                let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-            } else {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                section.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
+               //MARK: - pageControl
+                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: supplementarySize,
+                    elementKind: UICollectionView.elementKindSectionFooter,
+                    alignment: .bottom
+                )
+                supplementaryItem.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
+                section.boundarySupplementaryItems = [supplementaryItem]
+                
+                return section
+                //MARK: - Story constrint
+            case .payments:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                    
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(100))
-                let group: NSCollectionLayoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
-                group.contentInsets = .init(top: 10, leading: 16, bottom: 0, trailing: 10)
+                let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(100),
+                                                       heightDimension: .absolute(120))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
-                let headerSize: NSCollectionLayoutSize = .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(300))
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                
-                
-                section = NSCollectionLayoutSection(group: group)
+                let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
-                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.orthogonalScrollingBehavior = .continuous
+                section.contentInsets = .init(top: 25, leading: 10, bottom: 10, trailing: 10)
+                
+                return section
+                //MARK: - Market constriant
+            case .myHome:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(140),
+                                                       heightDimension: .absolute(80))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
+                section.orthogonalScrollingBehavior = .continuous
+                section.contentInsets = .init(top: 10, leading: 10, bottom: 40, trailing: 10)
+                
+                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                               heightDimension: .absolute(40))
+                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: supplementarySize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                section.boundarySupplementaryItems = [supplementaryItem]
+                
+                return section
+                //MARK: -  Shop Constriant
+            case .paymentsInPlaces:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .absolute(300))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                let section = NSCollectionLayoutSection(group: group)
+                
+                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                               heightDimension: .absolute(100))
+                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: supplementarySize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                section.boundarySupplementaryItems = [supplementaryItem]
+                section.contentInsets = .init(top: 0, leading: 10, bottom: 40, trailing: 10)
+                
+                return section
             }
-            return section
         }
-        return layout
     }
 
     required init?(coder: NSCoder) {

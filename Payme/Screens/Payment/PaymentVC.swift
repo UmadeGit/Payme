@@ -11,6 +11,7 @@ enum PaymentSectionType: Int, CaseIterable {
     case savedPayments = 0
     case payments = 1
     case myHome = 2
+    case paymentsInPlaces = 3
 }
 
 class PaymentVC: UIViewController {
@@ -48,22 +49,17 @@ class PaymentVC: UIViewController {
 
 extension PaymentVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfItemsInSection(for: section)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         presenter.cellForRow(collectionView: collectionView, at: indexPath)
     }
-    
-   
 }
 
 extension PaymentVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text?.lowercased() {
-            
         }
     }
 }

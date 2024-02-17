@@ -33,6 +33,11 @@ final class PaymentsPresenter: PaymentsPresenterable {
             
             cell.backgroundColor = .random
             return cell
+        case .paymentsInPlaces:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell4", for: indexPath)
+            
+            cell.backgroundColor = .random
+            return cell
         }
     }
     
@@ -47,6 +52,8 @@ final class PaymentsPresenter: PaymentsPresenterable {
             return 2
         case .myHome:
             return 2
+        case .paymentsInPlaces:
+            return 5
         }
     }
 }
