@@ -8,13 +8,12 @@
 import UIKit
 
 enum SectionType: Int, CaseIterable {
-    case category = 0
-    case financeServices = 1
-    case savedPayments = 2
-    case ads = 3
-    case myHome = 4
-    case services = 5
-    case lastPayments = 6
+    case financeServices = 0
+    case savedPayments = 1
+    case myHome = 2
+    case payments = 3
+    case ads = 4
+    case lastPayments = 5
 }
 
 
@@ -70,15 +69,27 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "HomeBalanceReusableView",
-            for: indexPath
-        )
+    
+        if indexPath.item == 0 {
+            let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: "BalanceHeader",
+                for: indexPath
+            )
+            return headerView
+
+        } else {
+            let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: "HomeBalanceReusableView",
+                for: indexPath
+            )
+            return headerView
+
+        }
         
-        headerView.backgroundColor = .rgb(45, 193, 191)
+//        headerView.backgroundColor = .white
         
-        return headerView
     }
 }
 

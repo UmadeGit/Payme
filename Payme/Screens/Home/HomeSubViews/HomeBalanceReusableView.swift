@@ -9,8 +9,14 @@ import UIKit
 
 final class HomeBalanceReusableView: UICollectionReusableView {
     
+    let label = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        addSubview(label)
+        label.frame = CGRect(x: 10, y: 10, width: 100, height: 40)
+        label.text = "dkjhaujshajklh"
         
     }
     

@@ -49,9 +49,6 @@ final class PaymentsView: UIView {
         collectionView.backgroundColor = .clear
         
         backgroundColor = .rgb(246, 248, 249)
-        
-        
-        
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -70,23 +67,23 @@ final class PaymentsView: UIView {
                                                       heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.28),
                                                        heightDimension: .absolute(120))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.contentInsets = .init(top: 10, leading: 10, bottom: 10, trailing: 10)
+                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                section.contentInsets = .init(top: 10, leading: 12, bottom: 10, trailing: 12)
                //MARK: - pageControl
-                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
-                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: supplementarySize,
-                    elementKind: UICollectionView.elementKindSectionFooter,
-                    alignment: .bottom
-                )
-                supplementaryItem.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
-                section.boundarySupplementaryItems = [supplementaryItem]
+//                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+//                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+//                    layoutSize: supplementarySize,
+//                    elementKind: UICollectionView.elementKindSectionFooter,
+//                    alignment: .bottom
+//                )
+//                supplementaryItem.contentInsets = .init(top: 0, leading: 0, bottom: 10, trailing: 0)
+//                section.boundarySupplementaryItems = [supplementaryItem]
                 
                 return section
                 //MARK: - Story constrint

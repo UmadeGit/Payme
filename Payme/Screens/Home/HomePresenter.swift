@@ -17,20 +17,18 @@ final class HomePresenter: HomeViewPresenterable {
         guard let sectionType = SectionType(rawValue: section) else { return 0 }
         
         switch sectionType {
-        case .category:
-            return 2
         case .financeServices:
-            return 4
+            return 2
         case .savedPayments:
-            return 1
-        case .ads:
-            return 1
+            return 4
         case .myHome:
+            return 2
+        case .payments:
             return 10
-        case .services:
-            return 10
+        case .ads:
+            return 4
         case .lastPayments:
-            return 10
+            return 3
         }
     }
     
@@ -40,47 +38,73 @@ final class HomePresenter: HomeViewPresenterable {
         
         switch sectionType {
             
-        case .category:
+        case .financeServices:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
             
-            cell.backgroundColor = .init(UIColor(red: 84/255, green: 180/255, blue: 181/255, alpha: 1))
             cell.layer.cornerRadius = 20
-            cell.backgroundColor = .orange
-            return cell
-        case .financeServices:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
-            
-            cell.backgroundColor = .red
-            
+            cell.backgroundColor = .white
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
             return cell
         case .savedPayments:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
+            return cell
+        case .myHome:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
             
-            cell.backgroundColor = .blue
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
+            
+            return cell
+        case .payments:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
             
             return cell
         case .ads:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
-            
-            cell.backgroundColor = .green
-            
-            return cell
-        case .myHome:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
-            
-            cell.backgroundColor = .purple
-            
-            return cell
-        case .services:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
             
             cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
             
             return cell
         case .lastPayments:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
             
-            cell.backgroundColor = .orange
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
             
             return cell
         }

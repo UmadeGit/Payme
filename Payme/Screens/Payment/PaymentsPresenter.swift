@@ -19,8 +19,14 @@ final class PaymentsPresenter: PaymentsPresenterable {
         
         switch sectionType {
         case .savedPayments:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
-            cell.backgroundColor = .random
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! PaymentSavedPaymentsCell
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOpacity = 0.3
+            cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+            cell.layer.shadowRadius = 3
+            cell.layer.masksToBounds = false
             return cell
             
         case .payments:
@@ -47,7 +53,7 @@ final class PaymentsPresenter: PaymentsPresenterable {
         switch sectionType {
             
         case .savedPayments:
-            return 2
+            return 5
         case .payments:
             return 2
         case .myHome:

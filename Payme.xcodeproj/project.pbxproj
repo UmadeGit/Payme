@@ -18,6 +18,12 @@
 		B62C270B2B563AED0013F90A /* CashFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C270A2B563AED0013F90A /* CashFlowVC.swift */; };
 		B62D06452B67F24C001EF468 /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D06442B67F24C001EF468 /* TransferPresenter.swift */; };
 		B64D4B422B581F1B0008A904 /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4B412B581F1B0008A904 /* ServicesCell.swift */; };
+		B65010E12B83880F004579CF /* HomePaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E02B83880F004579CF /* HomePaymentsCell.swift */; };
+		B65010E32B838838004579CF /* HomeFinanceServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E22B838838004579CF /* HomeFinanceServicesCell.swift */; };
+		B65010E52B838847004579CF /* HomeMyHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E42B838847004579CF /* HomeMyHomeCell.swift */; };
+		B65010E72B83885F004579CF /* HomeAdsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E62B83885F004579CF /* HomeAdsCell.swift */; };
+		B65010E92B838873004579CF /* HomeLastPaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */; };
+		B65010EB2B83A2E1004579CF /* BalanceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010EA2B83A2E1004579CF /* BalanceHeader.swift */; };
 		B651F3752B63E51900084DC7 /* CashFlowSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3742B63E51900084DC7 /* CashFlowSettingsView.swift */; };
 		B651F3772B63F2D700084DC7 /* TicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3762B63F2D700084DC7 /* TicketsView.swift */; };
 		B651F3792B63F2E100084DC7 /* TicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3782B63F2E100084DC7 /* TicketsVC.swift */; };
@@ -72,6 +78,12 @@
 		B62C270A2B563AED0013F90A /* CashFlowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowVC.swift; sourceTree = "<group>"; };
 		B62D06442B67F24C001EF468 /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
 		B64D4B412B581F1B0008A904 /* ServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
+		B65010E02B83880F004579CF /* HomePaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePaymentsCell.swift; sourceTree = "<group>"; };
+		B65010E22B838838004579CF /* HomeFinanceServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFinanceServicesCell.swift; sourceTree = "<group>"; };
+		B65010E42B838847004579CF /* HomeMyHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyHomeCell.swift; sourceTree = "<group>"; };
+		B65010E62B83885F004579CF /* HomeAdsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdsCell.swift; sourceTree = "<group>"; };
+		B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLastPaymentsCell.swift; sourceTree = "<group>"; };
+		B65010EA2B83A2E1004579CF /* BalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeader.swift; sourceTree = "<group>"; };
 		B651F3742B63E51900084DC7 /* CashFlowSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowSettingsView.swift; sourceTree = "<group>"; };
 		B651F3762B63F2D700084DC7 /* TicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsView.swift; sourceTree = "<group>"; };
 		B651F3782B63F2E100084DC7 /* TicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsVC.swift; sourceTree = "<group>"; };
@@ -163,6 +175,18 @@
 				B62C26F82B562F4F0013F90A /* Info.plist */,
 			);
 			path = Payme;
+			sourceTree = "<group>";
+		};
+		B65010D92B8387BC004579CF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B65010E02B83880F004579CF /* HomePaymentsCell.swift */,
+				B65010E22B838838004579CF /* HomeFinanceServicesCell.swift */,
+				B65010E42B838847004579CF /* HomeMyHomeCell.swift */,
+				B65010E62B83885F004579CF /* HomeAdsCell.swift */,
+				B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B6743D492B6A9E5300925E8E /* TransferSubviews */ = {
@@ -279,10 +303,11 @@
 		B6A21C542B611D8E00D328F3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B65010D92B8387BC004579CF /* Cells */,
 				B6A21C602B612F3800D328F3 /* HomeSubViews */,
 				B6A21C5A2B611FB800D328F3 /* HomeVC.swift */,
-				B6A21C5E2B612F3200D328F3 /* HomePresenter.swift */,
 				B6A21C5C2B61205200D328F3 /* HomeView.swift */,
+				B6A21C5E2B612F3200D328F3 /* HomePresenter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -329,6 +354,7 @@
 			children = (
 				B6A21C612B612F5C00D328F3 /* HomeBalanceReusableView.swift */,
 				B6743D562B6AA63F00925E8E /* MainButton.swift */,
+				B65010EA2B83A2E1004579CF /* BalanceHeader.swift */,
 			);
 			path = HomeSubViews;
 			sourceTree = "<group>";
@@ -336,10 +362,10 @@
 		B6DF22D42B7B38C6000D8C23 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				B6DF22DE2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift */,
 				B6DF22D72B7B38E8000D8C23 /* PaymentsCell.swift */,
 				B6DF22DA2B7B3901000D8C23 /* MyHomeCell.swift */,
 				B6DF22DC2B7B391B000D8C23 /* PaymentsInPlacesCell.swift */,
-				B6DF22DE2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -439,6 +465,7 @@
 				B64D4B422B581F1B0008A904 /* ServicesCell.swift in Sources */,
 				B6DF22DF2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift in Sources */,
 				B651F3792B63F2E100084DC7 /* TicketsVC.swift in Sources */,
+				B65010E32B838838004579CF /* HomeFinanceServicesCell.swift in Sources */,
 				B6A21C662B615BE700D328F3 /* StateServices.swift in Sources */,
 				B6A21C682B6161DE00D328F3 /* StateServicesCell.swift in Sources */,
 				B62C27072B563AC60013F90A /* TransferVC.swift in Sources */,
@@ -450,23 +477,28 @@
 				B6A21C6C2B61724400D328F3 /* CashFlowSettingsVC.swift in Sources */,
 				B6A21C6A2B61723300D328F3 /* RemindersVC.swift in Sources */,
 				B6A21C512B611BAB00D328F3 /* Color.swift in Sources */,
+				B65010E52B838847004579CF /* HomeMyHomeCell.swift in Sources */,
 				B6743D4B2B6A9E8D00925E8E /* ShowAllReceiversVC.swift in Sources */,
+				B65010E92B838873004579CF /* HomeLastPaymentsCell.swift in Sources */,
 				B6DF22DB2B7B3901000D8C23 /* MyHomeCell.swift in Sources */,
 				B6A21C5F2B612F3200D328F3 /* HomePresenter.swift in Sources */,
 				B69236EE2B63E08800AA3942 /* RemindersView.swift in Sources */,
 				B690B0DE2B64486D002195E8 /* SavedPaymentsCell.swift in Sources */,
 				B6743D4F2B6AA0F300925E8E /* ShowAllPresenter.swift in Sources */,
 				B6FF9D0A2B62E5CD005DF1E7 /* ServicesPresenter.swift in Sources */,
+				B65010E72B83885F004579CF /* HomeAdsCell.swift in Sources */,
 				B62C270B2B563AED0013F90A /* CashFlowVC.swift in Sources */,
 				B6DF22DD2B7B391B000D8C23 /* PaymentsInPlacesCell.swift in Sources */,
 				B690B0DC2B644549002195E8 /* PaymentsView.swift in Sources */,
 				B651F3772B63F2D700084DC7 /* TicketsView.swift in Sources */,
+				B65010E12B83880F004579CF /* HomePaymentsCell.swift in Sources */,
 				B68B35A92B713112004A9249 /* ExchangeCurrencyView.swift in Sources */,
 				B6DF22D82B7B38E8000D8C23 /* PaymentsCell.swift in Sources */,
 				B62C27052B563AB40013F90A /* PaymentVC.swift in Sources */,
 				B6F8F6DD2B5BD720004977D2 /* CashFlowCell.swift in Sources */,
 				B6FF9D0E2B62EC4E005DF1E7 /* CashFlowPresenter.swift in Sources */,
 				B6A21C5B2B611FB800D328F3 /* HomeVC.swift in Sources */,
+				B65010EB2B83A2E1004579CF /* BalanceHeader.swift in Sources */,
 				B62C27012B5639180013F90A /* TABVC.swift in Sources */,
 				B690B0E02B644D0A002195E8 /* PaymentsPresenter.swift in Sources */,
 				B62C26EB2B562F4E0013F90A /* AppDelegate.swift in Sources */,
