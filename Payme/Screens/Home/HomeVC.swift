@@ -16,7 +16,12 @@ enum SectionType: Int, CaseIterable {
     case lastPayments = 5
 }
 
-
+var sections: [HomeBalanceReusableData] = [
+    HomeBalanceReusableData(title: "Финансовые услуги"),
+    HomeBalanceReusableData(title: "jhgjh"),
+    HomeBalanceReusableData(title: "hggffhjg"),
+    HomeBalanceReusableData(title: "jgghjg"),
+]
 
 class HomeVC: UIViewController {
     
@@ -69,23 +74,45 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
-    
-        if indexPath.item == 0 {
-            let headerView = collectionView.dequeueReusableSupplementaryView(
+        
+        guard let sectionType = SectionType(rawValue: indexPath.section) else { return UICollectionReusableView()}
+        
+        switch sectionType {
+        case .financeServices:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
                 withReuseIdentifier: "BalanceHeader",
                 for: indexPath
-            )
+            ) as? BalanceHeader else { return UICollectionReusableView() }
             return headerView
-
-        } else {
+        default:
             let headerView = collectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
                 withReuseIdentifier: "HomeBalanceReusableView",
                 for: indexPath
-            )
+            ) as! HomeBalanceReusableView
+            
+            headerView.label.text = sections[indexPath.row].title
+            
             return headerView
-
+            
+            
+//        if indexPath.item == 0 {
+//            let headerView = collectionView.dequeueReusableSupplementaryView(
+//                ofKind: UICollectionView.elementKindSectionHeader,
+//                withReuseIdentifier: "BalanceHeader",
+//                for: indexPath
+//            )
+//            return headerView
+//
+//        } else {
+//            let headerView = collectionView.dequeueReusableSupplementaryView(
+//                ofKind: UICollectionView.elementKindSectionHeader,
+//                withReuseIdentifier: "HomeBalanceReusableView",
+//                for: indexPath
+//            )
+//            return headerView
+//
         }
         
 //        headerView.backgroundColor = .white

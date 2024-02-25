@@ -14,7 +14,7 @@ final class BalanceHeader: UICollectionReusableView {
             lbl.font = .systemFont(ofSize: 13)
             lbl.textColor = .white
             lbl.textAlignment = .center
-            lbl.text = "Umumiy balans"
+            lbl.text = "smthhhhh"
             lbl.numberOfLines = 1
             return lbl
         }()
@@ -42,6 +42,7 @@ final class BalanceHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
+        backgroundColor = .rgb(45, 193, 191)
     }
     
     required init?(coder: NSCoder) {

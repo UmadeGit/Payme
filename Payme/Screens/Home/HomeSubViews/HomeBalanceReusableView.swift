@@ -15,8 +15,9 @@ final class HomeBalanceReusableView: UICollectionReusableView {
         super.init(frame: frame)
         
         addSubview(label)
-        label.frame = CGRect(x: 10, y: 10, width: 100, height: 40)
-        label.text = "dkjhaujshajklh"
+        label.frame = CGRect(x: 0, y: 10, width: 200, height: 40)
+        label.font = .boldSystemFont(ofSize: 18)
+        
         
     }
     

@@ -24,6 +24,8 @@
 		B65010E72B83885F004579CF /* HomeAdsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E62B83885F004579CF /* HomeAdsCell.swift */; };
 		B65010E92B838873004579CF /* HomeLastPaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */; };
 		B65010EB2B83A2E1004579CF /* BalanceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010EA2B83A2E1004579CF /* BalanceHeader.swift */; };
+		B65010ED2B83ABE3004579CF /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010EC2B83ABE3004579CF /* BackgroundColor.swift */; };
+		B65010EF2B83B157004579CF /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010EE2B83B157004579CF /* UIStackView.swift */; };
 		B651F3752B63E51900084DC7 /* CashFlowSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3742B63E51900084DC7 /* CashFlowSettingsView.swift */; };
 		B651F3772B63F2D700084DC7 /* TicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3762B63F2D700084DC7 /* TicketsView.swift */; };
 		B651F3792B63F2E100084DC7 /* TicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3782B63F2E100084DC7 /* TicketsVC.swift */; };
@@ -84,6 +86,8 @@
 		B65010E62B83885F004579CF /* HomeAdsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdsCell.swift; sourceTree = "<group>"; };
 		B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLastPaymentsCell.swift; sourceTree = "<group>"; };
 		B65010EA2B83A2E1004579CF /* BalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeader.swift; sourceTree = "<group>"; };
+		B65010EC2B83ABE3004579CF /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
+		B65010EE2B83B157004579CF /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		B651F3742B63E51900084DC7 /* CashFlowSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowSettingsView.swift; sourceTree = "<group>"; };
 		B651F3762B63F2D700084DC7 /* TicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsView.swift; sourceTree = "<group>"; };
 		B651F3782B63F2E100084DC7 /* TicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsVC.swift; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A21C502B611BAB00D328F3 /* Color.swift */,
+				B65010EE2B83B157004579CF /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				B6A21C5A2B611FB800D328F3 /* HomeVC.swift */,
 				B6A21C5C2B61205200D328F3 /* HomeView.swift */,
 				B6A21C5E2B612F3200D328F3 /* HomePresenter.swift */,
+				B65010EC2B83ABE3004579CF /* BackgroundColor.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -477,12 +483,14 @@
 				B6A21C6C2B61724400D328F3 /* CashFlowSettingsVC.swift in Sources */,
 				B6A21C6A2B61723300D328F3 /* RemindersVC.swift in Sources */,
 				B6A21C512B611BAB00D328F3 /* Color.swift in Sources */,
+				B65010ED2B83ABE3004579CF /* BackgroundColor.swift in Sources */,
 				B65010E52B838847004579CF /* HomeMyHomeCell.swift in Sources */,
 				B6743D4B2B6A9E8D00925E8E /* ShowAllReceiversVC.swift in Sources */,
 				B65010E92B838873004579CF /* HomeLastPaymentsCell.swift in Sources */,
 				B6DF22DB2B7B3901000D8C23 /* MyHomeCell.swift in Sources */,
 				B6A21C5F2B612F3200D328F3 /* HomePresenter.swift in Sources */,
 				B69236EE2B63E08800AA3942 /* RemindersView.swift in Sources */,
+				B65010EF2B83B157004579CF /* UIStackView.swift in Sources */,
 				B690B0DE2B64486D002195E8 /* SavedPaymentsCell.swift in Sources */,
 				B6743D4F2B6AA0F300925E8E /* ShowAllPresenter.swift in Sources */,
 				B6FF9D0A2B62E5CD005DF1E7 /* ServicesPresenter.swift in Sources */,

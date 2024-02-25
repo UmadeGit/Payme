@@ -7,15 +7,15 @@
 
 import UIKit
 
+struct HomeBalanceReusableData {
+    let title: String
+}
+
 final class HomeView: UIView {
     
     private let backgroundView = UIView(
-        frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+        frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.5)
     )
-    
-    //    private let backgroundViewBottom = UIView(
-    //        frame: CGRect(x: 0, y: (UIScreen.main.bounds.height / 2) - 30, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
-    //    )
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
@@ -60,10 +60,12 @@ final class HomeView: UIView {
     }
     
     private func createLayout() -> UICollectionViewLayout {
-        UICollectionViewCompositionalLayout { (
+        let layout = UICollectionViewCompositionalLayout { (
             sectionIndex: Int,
             layoutEnvironment: NSCollectionLayoutEnvironment
         ) -> NSCollectionLayoutSection? in
+            
+            let section: NSCollectionLayoutSection
             
             guard let sectionType = SectionType(rawValue: sectionIndex) else { return nil }
             
@@ -81,19 +83,18 @@ final class HomeView: UIView {
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                section.contentInsets = .init(top: 10, leading: 12, bottom: 10, trailing: 12)
+                section.contentInsets = .init(top: 20, leading: 12, bottom: 10, trailing: 12)
                 
-                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                               heightDimension: .absolute(60))
-                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: supplementarySize,
-                    elementKind: UICollectionView.elementKindSectionHeader,
-                    alignment: .top)
-                section.boundarySupplementaryItems = [supplementaryItem]
+//                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+//                                                               heightDimension: .absolute(60))
+//                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+//                    layoutSize: supplementarySize,
+//                    elementKind: UICollectionView.elementKindSectionHeader,
+//                    alignment: .top)
                 
                 let headerSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalWidth(1),
-                    heightDimension: .fractionalWidth(3/5)
+                    widthDimension: .fractionalWidth(1.1),
+                    heightDimension: .absolute(320)
                 )
                 
                 let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -101,6 +102,13 @@ final class HomeView: UIView {
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top
                 )
+                section.boundarySupplementaryItems = [header]
+                
+                let backgroundDecoretion = NSCollectionLayoutDecorationItem.background(elementKind: "BackgroundColor")
+                backgroundDecoretion.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                backgroundDecoretion.zIndex = -1
+                section.decorationItems = [backgroundDecoretion]
+
                 return section
             case .savedPayments:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
@@ -114,7 +122,20 @@ final class HomeView: UIView {
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                section.contentInsets = .init(top: 10, leading: 20, bottom: 10, trailing: 12)
+                section.contentInsets = .init(top: 10, leading: 25, bottom: 40, trailing: 10)
+                
+                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                               heightDimension: .absolute(60))
+                let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: supplementarySize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                section.boundarySupplementaryItems = [supplementaryItem]
+                
+                let backgroundDecoretion = NSCollectionLayoutDecorationItem.background(elementKind: "BackgroundColor")
+                backgroundDecoretion.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                backgroundDecoretion.zIndex = -1
+                section.decorationItems = [backgroundDecoretion]
                 
                 return section
             case .myHome:
@@ -139,6 +160,11 @@ final class HomeView: UIView {
                     alignment: .top)
                 section.boundarySupplementaryItems = [supplementaryItem]
                 
+                let backgroundDecoretion = NSCollectionLayoutDecorationItem.background(elementKind: "BackgroundColor")
+                backgroundDecoretion.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                backgroundDecoretion.zIndex = -1
+                section.decorationItems = [backgroundDecoretion]
+                
                 return section
             case .payments:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
@@ -152,7 +178,7 @@ final class HomeView: UIView {
                 let section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                section.contentInsets = .init(top: 10, leading: 20, bottom: 10, trailing: 12)
+                section.contentInsets = .init(top: 10, leading: 25, bottom: 10, trailing: 12)
                 
                 let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                                heightDimension: .absolute(60))
@@ -161,6 +187,11 @@ final class HomeView: UIView {
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top)
                 section.boundarySupplementaryItems = [supplementaryItem]
+                
+                let backgroundDecoretion = NSCollectionLayoutDecorationItem.background(elementKind: "BackgroundColor")
+                backgroundDecoretion.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                backgroundDecoretion.zIndex = -1
+                section.decorationItems = [backgroundDecoretion]
                 
                 return section
             case .ads:
@@ -177,13 +208,18 @@ final class HomeView: UIView {
                 section.orthogonalScrollingBehavior = .groupPagingCentered
                 section.contentInsets = .init(top: 10, leading: 5, bottom: 40, trailing: 10)
                 
-                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.87),
                                                                heightDimension: .absolute(60))
                 let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: supplementarySize,
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top)
                 section.boundarySupplementaryItems = [supplementaryItem]
+                
+                let backgroundDecoretion = NSCollectionLayoutDecorationItem.background(elementKind: "BackgroundColor")
+                backgroundDecoretion.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                backgroundDecoretion.zIndex = -1
+                section.decorationItems = [backgroundDecoretion]
                 
                 return section
             case .lastPayments:
@@ -207,9 +243,17 @@ final class HomeView: UIView {
                     alignment: .top)
                 section.boundarySupplementaryItems = [supplementaryItem]
                 
+                let backgroundDecoretion = NSCollectionLayoutDecorationItem.background(elementKind: "BackgroundColor")
+                backgroundDecoretion.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+                backgroundDecoretion.zIndex = -1
+                section.decorationItems = [backgroundDecoretion]
+                
                 return section
             }
         }
+        layout.register(BackgroundColor.self, forDecorationViewOfKind: "BackgroundColor")
+        
+        return layout
     }
     
     

@@ -13,6 +13,7 @@ protocol HomeViewPresenterable: AnyObject {
 }
 
 final class HomePresenter: HomeViewPresenterable {
+    
     func numberOfItemsInSection(for section: Int) -> Int {
         guard let sectionType = SectionType(rawValue: section) else { return 0 }
         
@@ -39,7 +40,7 @@ final class HomePresenter: HomeViewPresenterable {
         switch sectionType {
             
         case .financeServices:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! HomeFinanceServicesCell
             
             cell.layer.cornerRadius = 20
             cell.backgroundColor = .white
@@ -48,6 +49,9 @@ final class HomePresenter: HomeViewPresenterable {
             cell.layer.shadowOffset = CGSize(width: 0, height: 3)
             cell.layer.shadowRadius = 3
             cell.layer.masksToBounds = false
+            
+            cell.label.text = "Перевести средства"
+            
             return cell
         case .savedPayments:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
@@ -60,7 +64,7 @@ final class HomePresenter: HomeViewPresenterable {
             cell.layer.masksToBounds = false
             return cell
         case .myHome:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath)
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 15
@@ -72,7 +76,7 @@ final class HomePresenter: HomeViewPresenterable {
             
             return cell
         case .payments:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell4", for: indexPath)
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 15
@@ -84,7 +88,7 @@ final class HomePresenter: HomeViewPresenterable {
             
             return cell
         case .ads:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell5", for: indexPath)
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 15
@@ -96,7 +100,7 @@ final class HomePresenter: HomeViewPresenterable {
             
             return cell
         case .lastPayments:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell6", for: indexPath)
             
             cell.backgroundColor = .white
             cell.layer.cornerRadius = 15
