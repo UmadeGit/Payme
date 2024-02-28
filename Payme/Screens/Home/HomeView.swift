@@ -27,8 +27,8 @@ final class HomeView: UIView {
         collectionView.register(BalanceHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "BalanceHeader")
         collectionView.register(HomeFinanceServicesCell.self, forCellWithReuseIdentifier: "cell1")
         collectionView.register(PaymentSavedPaymentsCell.self, forCellWithReuseIdentifier: "cell2")
-        collectionView.register(HomeMyHomeCell.self, forCellWithReuseIdentifier: "cell3")
-        collectionView.register(HomePaymentsCell.self, forCellWithReuseIdentifier: "cell4")
+        collectionView.register(MyHomeCell.self, forCellWithReuseIdentifier: "cell3")
+        collectionView.register(PaymentsCell.self, forCellWithReuseIdentifier: "cell4")
         collectionView.register(HomeAdsCell.self, forCellWithReuseIdentifier: "cell5")
         collectionView.register(HomeLastPaymentsCell.self, forCellWithReuseIdentifier: "cell6")
         collectionView.register(HomeBalanceReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeBalanceReusableView")
@@ -64,9 +64,7 @@ final class HomeView: UIView {
             sectionIndex: Int,
             layoutEnvironment: NSCollectionLayoutEnvironment
         ) -> NSCollectionLayoutSection? in
-            
-            let section: NSCollectionLayoutSection
-            
+                        
             guard let sectionType = SectionType(rawValue: sectionIndex) else { return nil }
             
             switch sectionType {
@@ -209,7 +207,7 @@ final class HomeView: UIView {
                 section.contentInsets = .init(top: 10, leading: 5, bottom: 40, trailing: 10)
                 
                 let supplementarySize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.87),
-                                                               heightDimension: .absolute(60))
+                                                               heightDimension: .absolute(40))
                 let supplementaryItem = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: supplementarySize,
                     elementKind: UICollectionView.elementKindSectionHeader,

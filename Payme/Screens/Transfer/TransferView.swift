@@ -195,12 +195,7 @@ final class TransferView: UIView {
         
         contactImage.frame = CGRect(x: 25, y: 10, width: 60, height: 50)
         contactImage.image = UIImage(named: "Contacts")
-        
-        
-        
-                
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -16,13 +16,6 @@ enum SectionType: Int, CaseIterable {
     case lastPayments = 5
 }
 
-var sections: [HomeBalanceReusableData] = [
-    HomeBalanceReusableData(title: "Финансовые услуги"),
-    HomeBalanceReusableData(title: "jhgjh"),
-    HomeBalanceReusableData(title: "hggffhjg"),
-    HomeBalanceReusableData(title: "jgghjg"),
-]
-
 class HomeVC: UIViewController {
     
     let layer = CAGradientLayer()
@@ -51,21 +44,25 @@ class HomeVC: UIViewController {
         
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
-        mainView.go.delegate = self
-        mainView.qr.delegate = self
-        mainView.card.delegate = self
     }
-    
 }
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func numberOfSections(in collectionView: UICollectionView) -> Int { SectionType.allCases.count }
+    func numberOfSections(
+        in collectionView: UICollectionView
+    ) -> Int { SectionType.allCases.count }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         presenter.numberOfItemsInSection(for: section)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         presenter.cellForRow(collectionView: collectionView, at: indexPath)
     }
     
@@ -74,64 +71,10 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         viewForSupplementaryElementOfKind kind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
-        
-        guard let sectionType = SectionType(rawValue: indexPath.section) else { return UICollectionReusableView()}
-        
-        switch sectionType {
-        case .financeServices:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: "BalanceHeader",
-                for: indexPath
-            ) as? BalanceHeader else { return UICollectionReusableView() }
-            return headerView
-        default:
-            let headerView = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
-                withReuseIdentifier: "HomeBalanceReusableView",
-                for: indexPath
-            ) as! HomeBalanceReusableView
-            
-            headerView.label.text = sections[indexPath.row].title
-            
-            return headerView
-            
-            
-//        if indexPath.item == 0 {
-//            let headerView = collectionView.dequeueReusableSupplementaryView(
-//                ofKind: UICollectionView.elementKindSectionHeader,
-//                withReuseIdentifier: "BalanceHeader",
-//                for: indexPath
-//            )
-//            return headerView
-//
-//        } else {
-//            let headerView = collectionView.dequeueReusableSupplementaryView(
-//                ofKind: UICollectionView.elementKindSectionHeader,
-//                withReuseIdentifier: "HomeBalanceReusableView",
-//                for: indexPath
-//            )
-//            return headerView
-//
-        }
-        
-//        headerView.backgroundColor = .white
-        
+        presenter.viewForSupplementaryElementOfKind(collectionView: collectionView, at: indexPath)
     }
 }
 
-extension HomeVC: MainButtonDelegate {
-    func didTappedMainButton(type: MainButtonType) {
-        switch type {
-        case .card:
-            break
-        case .qr:
-            break
-        case .go:
-            break
-        }
-    }
-}
 
 //extension HomeVC: UISearchResultsUpdating {
 //    func updateSearchResults(for searchController: UISearchController) {

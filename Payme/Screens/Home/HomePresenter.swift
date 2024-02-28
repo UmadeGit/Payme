@@ -8,13 +8,34 @@
 import UIKit
 
 protocol HomeViewPresenterable: AnyObject {
-    func numberOfItemsInSection(for section:Int) -> Int
-    func cellForRow(collectionView:UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell
+    func numberOfItemsInSection(
+        for section:Int
+    ) -> Int
+    func cellForRow(
+        collectionView:UICollectionView,
+        at indexPath: IndexPath
+    ) -> UICollectionViewCell
+    func viewForSupplementaryElementOfKind(
+        collectionView:UICollectionView,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView
 }
 
 final class HomePresenter: HomeViewPresenterable {
     
-    func numberOfItemsInSection(for section: Int) -> Int {
+    private var sections: [HomeBalanceReusableData] = [
+        HomeBalanceReusableData(title: "Финансовые услуги"),
+        HomeBalanceReusableData(title: "Сохраненные платежи"),
+        HomeBalanceReusableData(title: "Мой дом"),
+        HomeBalanceReusableData(title: "Оплата услуг"),
+        HomeBalanceReusableData(title: ""),
+        HomeBalanceReusableData(title: "Последние транзакции"),
+    ]
+    
+    func numberOfItemsInSection(
+        for section: Int
+    ) -> Int {
+        
         guard let sectionType = SectionType(rawValue: section) else { return 0 }
         
         switch sectionType {
@@ -33,7 +54,10 @@ final class HomePresenter: HomeViewPresenterable {
         }
     }
     
-    func cellForRow(collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
+    func cellForRow(
+        collectionView: UICollectionView,
+        at indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         guard let sectionType = SectionType(rawValue: indexPath.section) else { return UICollectionViewCell() }
         
@@ -111,6 +135,34 @@ final class HomePresenter: HomeViewPresenterable {
             cell.layer.masksToBounds = false
             
             return cell
+        }
+    }
+    
+    func viewForSupplementaryElementOfKind(
+        collectionView: UICollectionView,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        
+        guard let sectionType = SectionType(rawValue: indexPath.section) else { return UICollectionReusableView()}
+        
+        switch sectionType {
+        case .financeServices:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: "BalanceHeader",
+                for: indexPath
+            ) as? BalanceHeader else { return UICollectionReusableView() }
+            return headerView
+        default:
+            let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: "HomeBalanceReusableView",
+                for: indexPath
+            ) as! HomeBalanceReusableView
+            
+            headerView.label.text = sections[sectionType.rawValue].title
+            
+            return headerView
         }
     }
 }

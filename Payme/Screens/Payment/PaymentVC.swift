@@ -49,11 +49,21 @@ class PaymentVC: UIViewController {
 
 extension PaymentVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int { PaymentSectionType.allCases.count }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfItemsInSection(for: section)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         presenter.cellForRow(collectionView: collectionView, at: indexPath)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        presenter.viewForSupplementaryElementOfKind(collectionView: collectionView, at: indexPath)
     }
 }
 

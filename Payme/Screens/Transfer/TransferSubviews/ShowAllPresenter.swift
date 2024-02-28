@@ -20,6 +20,18 @@ var showAllData: [ShowAllData] = [
     ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
     ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
     ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
+    ShowAllData(name: "Abrorov Ahmadbek", card: "5440 99** **** 9138"),
 ]
 
 final class ShowAllPresenter: ShowAllPresenterable {

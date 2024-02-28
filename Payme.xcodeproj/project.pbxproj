@@ -18,9 +18,7 @@
 		B62C270B2B563AED0013F90A /* CashFlowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C270A2B563AED0013F90A /* CashFlowVC.swift */; };
 		B62D06452B67F24C001EF468 /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D06442B67F24C001EF468 /* TransferPresenter.swift */; };
 		B64D4B422B581F1B0008A904 /* ServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4B412B581F1B0008A904 /* ServicesCell.swift */; };
-		B65010E12B83880F004579CF /* HomePaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E02B83880F004579CF /* HomePaymentsCell.swift */; };
 		B65010E32B838838004579CF /* HomeFinanceServicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E22B838838004579CF /* HomeFinanceServicesCell.swift */; };
-		B65010E52B838847004579CF /* HomeMyHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E42B838847004579CF /* HomeMyHomeCell.swift */; };
 		B65010E72B83885F004579CF /* HomeAdsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E62B83885F004579CF /* HomeAdsCell.swift */; };
 		B65010E92B838873004579CF /* HomeLastPaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */; };
 		B65010EB2B83A2E1004579CF /* BalanceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65010EA2B83A2E1004579CF /* BalanceHeader.swift */; };
@@ -31,6 +29,7 @@
 		B651F3792B63F2E100084DC7 /* TicketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651F3782B63F2E100084DC7 /* TicketsVC.swift */; };
 		B65542462B67B86F007A9D49 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65542452B67B86F007A9D49 /* TransferView.swift */; };
 		B65542482B67C565007A9D49 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65542472B67C565007A9D49 /* CollectionCell.swift */; };
+		B6741EEB2B8DEF5900E38C0D /* PaymentsBalanceReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6741EEA2B8DEF5900E38C0D /* PaymentsBalanceReusableView.swift */; };
 		B6743D4B2B6A9E8D00925E8E /* ShowAllReceiversVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6743D4A2B6A9E8D00925E8E /* ShowAllReceiversVC.swift */; };
 		B6743D4D2B6A9E9700925E8E /* ShowAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6743D4C2B6A9E9700925E8E /* ShowAllView.swift */; };
 		B6743D4F2B6AA0F300925E8E /* ShowAllPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6743D4E2B6AA0F300925E8E /* ShowAllPresenter.swift */; };
@@ -59,6 +58,8 @@
 		B6DF22DB2B7B3901000D8C23 /* MyHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF22DA2B7B3901000D8C23 /* MyHomeCell.swift */; };
 		B6DF22DD2B7B391B000D8C23 /* PaymentsInPlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF22DC2B7B391B000D8C23 /* PaymentsInPlacesCell.swift */; };
 		B6DF22DF2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF22DE2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift */; };
+		B6F41C082B8C9E6B0089C5B9 /* BalanceHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F41C072B8C9E6B0089C5B9 /* BalanceHeaderCell.swift */; };
+		B6F41C0A2B8CA25F0089C5B9 /* LabelPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F41C092B8CA25F0089C5B9 /* LabelPlusButton.swift */; };
 		B6F8F6DD2B5BD720004977D2 /* CashFlowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8F6DC2B5BD720004977D2 /* CashFlowCell.swift */; };
 		B6FF9D082B62E2DE005DF1E7 /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FF9D072B62E2DE005DF1E7 /* ServicesView.swift */; };
 		B6FF9D0A2B62E5CD005DF1E7 /* ServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FF9D092B62E5CD005DF1E7 /* ServicesPresenter.swift */; };
@@ -80,9 +81,7 @@
 		B62C270A2B563AED0013F90A /* CashFlowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowVC.swift; sourceTree = "<group>"; };
 		B62D06442B67F24C001EF468 /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
 		B64D4B412B581F1B0008A904 /* ServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCell.swift; sourceTree = "<group>"; };
-		B65010E02B83880F004579CF /* HomePaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePaymentsCell.swift; sourceTree = "<group>"; };
 		B65010E22B838838004579CF /* HomeFinanceServicesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFinanceServicesCell.swift; sourceTree = "<group>"; };
-		B65010E42B838847004579CF /* HomeMyHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMyHomeCell.swift; sourceTree = "<group>"; };
 		B65010E62B83885F004579CF /* HomeAdsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdsCell.swift; sourceTree = "<group>"; };
 		B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLastPaymentsCell.swift; sourceTree = "<group>"; };
 		B65010EA2B83A2E1004579CF /* BalanceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeader.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		B651F3782B63F2E100084DC7 /* TicketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsVC.swift; sourceTree = "<group>"; };
 		B65542452B67B86F007A9D49 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 		B65542472B67C565007A9D49 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		B6741EEA2B8DEF5900E38C0D /* PaymentsBalanceReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsBalanceReusableView.swift; sourceTree = "<group>"; };
 		B6743D4A2B6A9E8D00925E8E /* ShowAllReceiversVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAllReceiversVC.swift; sourceTree = "<group>"; };
 		B6743D4C2B6A9E9700925E8E /* ShowAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAllView.swift; sourceTree = "<group>"; };
 		B6743D4E2B6AA0F300925E8E /* ShowAllPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAllPresenter.swift; sourceTree = "<group>"; };
@@ -121,6 +121,8 @@
 		B6DF22DA2B7B3901000D8C23 /* MyHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomeCell.swift; sourceTree = "<group>"; };
 		B6DF22DC2B7B391B000D8C23 /* PaymentsInPlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsInPlacesCell.swift; sourceTree = "<group>"; };
 		B6DF22DE2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSavedPaymentsCell.swift; sourceTree = "<group>"; };
+		B6F41C072B8C9E6B0089C5B9 /* BalanceHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceHeaderCell.swift; sourceTree = "<group>"; };
+		B6F41C092B8CA25F0089C5B9 /* LabelPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPlusButton.swift; sourceTree = "<group>"; };
 		B6F8F6DC2B5BD720004977D2 /* CashFlowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashFlowCell.swift; sourceTree = "<group>"; };
 		B6FF9D072B62E2DE005DF1E7 /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		B6FF9D092B62E5CD005DF1E7 /* ServicesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPresenter.swift; sourceTree = "<group>"; };
@@ -184,9 +186,7 @@
 		B65010D92B8387BC004579CF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B65010E02B83880F004579CF /* HomePaymentsCell.swift */,
 				B65010E22B838838004579CF /* HomeFinanceServicesCell.swift */,
-				B65010E42B838847004579CF /* HomeMyHomeCell.swift */,
 				B65010E62B83885F004579CF /* HomeAdsCell.swift */,
 				B65010E82B838873004579CF /* HomeLastPaymentsCell.swift */,
 			);
@@ -338,6 +338,7 @@
 				B690B0DB2B644549002195E8 /* PaymentsView.swift */,
 				B690B0DF2B644D0A002195E8 /* PaymentsPresenter.swift */,
 				B690B0DD2B64486D002195E8 /* SavedPaymentsCell.swift */,
+				B6741EEA2B8DEF5900E38C0D /* PaymentsBalanceReusableView.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -361,6 +362,8 @@
 				B6A21C612B612F5C00D328F3 /* HomeBalanceReusableView.swift */,
 				B6743D562B6AA63F00925E8E /* MainButton.swift */,
 				B65010EA2B83A2E1004579CF /* BalanceHeader.swift */,
+				B6F41C072B8C9E6B0089C5B9 /* BalanceHeaderCell.swift */,
+				B6F41C092B8CA25F0089C5B9 /* LabelPlusButton.swift */,
 			);
 			path = HomeSubViews;
 			sourceTree = "<group>";
@@ -467,11 +470,13 @@
 				B68B35A72B7130E4004A9249 /* ExchangeCurrencyVC.swift in Sources */,
 				B6743D4D2B6A9E9700925E8E /* ShowAllView.swift in Sources */,
 				B62C27092B563AD70013F90A /* ServicesVC.swift in Sources */,
+				B6741EEB2B8DEF5900E38C0D /* PaymentsBalanceReusableView.swift in Sources */,
 				B6A21C5D2B61205200D328F3 /* HomeView.swift in Sources */,
 				B64D4B422B581F1B0008A904 /* ServicesCell.swift in Sources */,
 				B6DF22DF2B7E4671000D8C23 /* PaymentSavedPaymentsCell.swift in Sources */,
 				B651F3792B63F2E100084DC7 /* TicketsVC.swift in Sources */,
 				B65010E32B838838004579CF /* HomeFinanceServicesCell.swift in Sources */,
+				B6F41C0A2B8CA25F0089C5B9 /* LabelPlusButton.swift in Sources */,
 				B6A21C662B615BE700D328F3 /* StateServices.swift in Sources */,
 				B6A21C682B6161DE00D328F3 /* StateServicesCell.swift in Sources */,
 				B62C27072B563AC60013F90A /* TransferVC.swift in Sources */,
@@ -484,7 +489,6 @@
 				B6A21C6A2B61723300D328F3 /* RemindersVC.swift in Sources */,
 				B6A21C512B611BAB00D328F3 /* Color.swift in Sources */,
 				B65010ED2B83ABE3004579CF /* BackgroundColor.swift in Sources */,
-				B65010E52B838847004579CF /* HomeMyHomeCell.swift in Sources */,
 				B6743D4B2B6A9E8D00925E8E /* ShowAllReceiversVC.swift in Sources */,
 				B65010E92B838873004579CF /* HomeLastPaymentsCell.swift in Sources */,
 				B6DF22DB2B7B3901000D8C23 /* MyHomeCell.swift in Sources */,
@@ -499,7 +503,7 @@
 				B6DF22DD2B7B391B000D8C23 /* PaymentsInPlacesCell.swift in Sources */,
 				B690B0DC2B644549002195E8 /* PaymentsView.swift in Sources */,
 				B651F3772B63F2D700084DC7 /* TicketsView.swift in Sources */,
-				B65010E12B83880F004579CF /* HomePaymentsCell.swift in Sources */,
+				B6F41C082B8C9E6B0089C5B9 /* BalanceHeaderCell.swift in Sources */,
 				B68B35A92B713112004A9249 /* ExchangeCurrencyView.swift in Sources */,
 				B6DF22D82B7B38E8000D8C23 /* PaymentsCell.swift in Sources */,
 				B62C27052B563AB40013F90A /* PaymentVC.swift in Sources */,
